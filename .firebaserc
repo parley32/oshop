@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "oshop-clean": {
+      "hosting": {
+        "oshop": [
+          "oshop-clean"
+        ]
+      }
+    }
+  }
+}

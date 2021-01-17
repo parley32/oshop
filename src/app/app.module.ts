@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { RouterModule, CanActivate } from '@angular/router';
@@ -49,7 +50,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
-      
+
       { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard] },
       { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuard] },
     ]),
@@ -57,7 +58,8 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -18,7 +18,7 @@ export class UserService {
     });
   }
 
-  get(uid: string): Observable<AppUser> {
-    return this.db.object<AppUser>('/users/' + uid).valueChanges();
+  get(uid: string): Observable<any> {
+    return this.db.object('/users/' + uid).valueChanges();
   }
 }

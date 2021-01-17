@@ -1,3 +1,4 @@
+import { AdminAuthGuardService as AdminAuthGuard } from './admin-auth-guard.service';
 import { UserService } from './user.service';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
@@ -51,14 +52,23 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
 
-      { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard] },
-      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuard] },
+      { 
+        path: 'admin/products', 
+        component: AdminProductsComponent, 
+        canActivate: [AuthGuard, AdminAuthGuard] 
+      },
+      { 
+        path: 'admin/orders', 
+        component: AdminOrdersComponent, 
+        canActivate: [AuthGuard, AdminAuthGuard] 
+      },
     ]),
     NgbModule
   ],
   providers: [
     AuthService,
     AuthGuard,
+    AdminAuthGuard,
     UserService
   ],
   bootstrap: [AppComponent]

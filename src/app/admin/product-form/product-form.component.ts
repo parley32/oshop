@@ -1,6 +1,8 @@
 import { ProductService } from './../../product.service';
 import { CategoryService } from './../../category.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-form',
@@ -10,14 +12,21 @@ import { Component, OnInit } from '@angular/core';
 export class ProductFormComponent implements OnInit {
   categories$;
   product = {};
-  constructor(categoryService: CategoryService, private productService: ProductService) { 
+  id;
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private categoryService: CategoryService, 
+    private productService: ProductService) { 
     this.categories$ = categoryService.getCategories();
+
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id) { this.productService.get(this.id).pipe(take(1)).subscribe(product => this.product = product); }
   }
 
   save(product) {
-    console.log(product);
-    // this console.log() returns an object containing Category Undefined instead of Category Bread
     this.productService.create(product);
+    this.router.navigate(['/admin/products']);
   }
 
   ngOnInit(): void {

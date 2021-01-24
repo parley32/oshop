@@ -28,6 +28,8 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     AngularFireAuthModule,
     NgbModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent},
+      { path: '', component: ProductsComponent},
       { path: 'products', component: ProductsComponent},
       { path: 'shopping-cart', component: ShoppingCartComponent},
       { path: 'login', component: LoginComponent},

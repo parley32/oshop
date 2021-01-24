@@ -1,3 +1,4 @@
+import { Product } from './models/products';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
@@ -18,7 +19,7 @@ export class ProductService {
       .pipe(map(data => {
         return data.map(action => {
           const $key = action.payload.key;
-          const data = { $key, ...action.payload.val() as {}};
+          const data = { $key, ...action.payload.val() as Product};
           return data;
         });
       }));
@@ -26,5 +27,13 @@ export class ProductService {
 
   get(productId) {
     return this.db.object('/products/' + productId).valueChanges();
+  }
+
+  update(productId, product) {
+    return this.db.object('/products/' + productId).update(product);
+  }
+
+  delete(productId) {
+    return this.db.object('/products/' + productId).remove();
   }
 }

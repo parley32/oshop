@@ -1,3 +1,54 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
 
-body { padding-top: 80px; }
+ body {
+	 padding-top: 80px;
+}
+ h1, h2, h3 {
+	 margin-bottom: 1.5rem;
+}
+ .navbar {
+	 border-bottom: 3px solid #e7e7e7;
+}
+ .navbar-light .navbar-brand {
+	 color: #c1d62e;
+}
+ .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+	 color: #b1c522;
+}
+ .list-group-item.active {
+	 background-color: #c1d62e;
+	 border-color: #c1d62e;
+}
+ .btn-primary {
+	 background-color: #c1d62e;
+	 border-color: #c1d62e;
+}
+ .btn-primary:hover {
+	 background-color: #b1c522;
+	 border-color: #b1c522;
+}
+ .btn-danger {
+	 background-color: #f36d3b;
+	 border-color: #f36d3b;
+}
+ .btn-danger:hover {
+	 background-color: #f1551b;
+	 border-color: #f1551b;
+}
+ .btn-primary.disabled, .btn-primary:disabled {
+	 background-color: #c1d62e;
+	 border-color: #c1d62e;
+}
+ .form-control:focus {
+	 border: 1px solid #c1d62e;
+}
+ .fa-edit {
+	 color: #3c3d34;
+}
+ .fa-edit:hover {
+	 color: #2a2b24;
+}
